@@ -1,0 +1,30 @@
+<header>
+  <h3 class="preview">Pregled</h3>
+  <div class="menu">
+    <img
+      src="../../../assets/img/icons8-menu.svg"
+      alt=""
+      (click)="open = !open"
+    />
+    <ul class="dropdown" [ngClass]="{ display: open }">
+      <li
+        [routerLink]="['/train/prepare']"
+        routerLinkActive="router-link-active"
+      >
+        Trening
+      </li>
+      <li
+        [routerLink]="['/train/statistic']"
+        routerLinkActive="router-link-active"
+      >
+        Statistika
+      </li>
+      <li
+        [routerLink]="['/train/quotes']"
+        routerLinkActive="router-link-active"
+      >
+        Quote
+      </li>
+    </ul>
+  </div>
+</header>

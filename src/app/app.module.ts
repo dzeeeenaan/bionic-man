@@ -8,6 +8,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { TrainingComponent } from './training/training.component';
 import { UserService } from './user.service';
 import { DashboardComponent } from './training/dashboard/dashboard.component';
+import { PrepareComponent } from './training/dashboard/prepare/prepare.component';
+import { StatisticComponent } from './training/dashboard/statistic/statistic.component';
+import { QuotesComponent } from './training/dashboard/quotes/quotes.component';
+import { MenuComponent } from './training/dashboard/menu/menu.component';
+import { StartComponent } from './training/dashboard/start/start.component';
 
 const appRoutes: Routes = [
   {
@@ -15,6 +20,10 @@ const appRoutes: Routes = [
     component: HomeComponent,
   },
   { path: 'train', component: TrainingComponent },
+  { path: 'train/prepare', component: PrepareComponent },
+  { path: 'train/statistic', component: StatisticComponent },
+  { path: 'train/quotes', component: QuotesComponent },
+  { path: 'train/start', component: StartComponent },
 ];
 
 @NgModule({
@@ -24,6 +33,11 @@ const appRoutes: Routes = [
     TrainingComponent,
     setUpComponent,
     DashboardComponent,
+    PrepareComponent,
+    StatisticComponent,
+    QuotesComponent,
+    MenuComponent,
+    StartComponent,
   ],
   imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
   providers: [UserService],

@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  height: 85vh;
+  list-style: none;
+  flex-direction: column;
+  width: 80%;
+  font-size: 1.6rem;
+  margin-left: 1rem;
+  li {
+    padding: 1.5rem 0;
+  }
+}

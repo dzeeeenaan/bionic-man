@@ -1,0 +1,32 @@
+<app-menu></app-menu>
+
+<div class="container" #conti>
+  <h3>Odaberi Program</h3>
+  <div class="program-cont">
+    <div
+      class="circle 1"
+      (click)="wasClicked($event, circle1, circle2, circle3)"
+      #circle1
+    >
+      <p>Level <br />1</p>
+    </div>
+    <div
+      class="circle 1"
+      (click)="wasClicked($event, circle1, circle2, circle3)"
+      #circle2
+    >
+      <p>Level <br />2</p>
+    </div>
+    <div
+      class="circle 1"
+      (click)="wasClicked($event, circle1, circle2, circle3)"
+      #circle3
+    >
+      <p>Level <br />3</p>
+    </div>
+  </div>
+  <ul class="exercises" [ngClass]="{ reveal: isClicked }">
+    <li *ngFor="let item of list">{{ item }}</li>
+  </ul>
+  <div class="circle start" (click)="startProgram($event)">Start</div>
+</div>

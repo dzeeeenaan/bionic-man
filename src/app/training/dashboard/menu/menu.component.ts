@@ -2,11 +2,11 @@ import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
+  selector: 'app-menu',
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.scss'],
 })
-export class DashboardComponent implements OnInit {
+export class MenuComponent implements OnInit {
   open: boolean;
   constructor(private render: Renderer2, private route: Router) {}
 
@@ -20,19 +20,5 @@ export class DashboardComponent implements OnInit {
         ? this.render.addClass(value, 'whiten')
         : this.render.removeClass(value, 'whiten');
     });
-  }
-
-  navigate(item) {
-    switch (item.textContent) {
-      case 'Trening':
-        this.route.navigate(['train/prepare']);
-        break;
-      case 'Statistika':
-        this.route.navigate(['train/statistic']);
-        break;
-      case 'Quote':
-        this.route.navigate(['train/quoutes']);
-        break;
-    }
   }
 }
