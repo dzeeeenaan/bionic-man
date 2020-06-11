@@ -23,7 +23,7 @@ const appRoutes: Routes = [
   { path: 'train/prepare', component: PrepareComponent },
   { path: 'train/statistic', component: StatisticComponent },
   { path: 'train/quotes', component: QuotesComponent },
-  { path: 'train/start', component: StartComponent },
+  { path: 'train/:start', component: StartComponent },
 ];
 
 @NgModule({

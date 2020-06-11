@@ -1,7 +1,7 @@
 <div class="container" #cont>
   <h2>Level 1</h2>
   <h2 class="roundName">{{ roundName }}</h2>
-  <div class="counter circle">
-    <p>{{ count }}</p>
+  <div class="counter circle" (click)="pause()">
+    <p [ngClass]="{ paused: isPaused }">{{ count }}</p>
   </div>
 </div>

@@ -11,14 +11,14 @@ export class UserService {
       { name: ' Leg Raises', length: 30 },
       { name: ' Cat Plank ', length: 40 },
       { name: ' 20 x Sklekova', length: 25 },
-      { name: ' Superman', length: 40 },
-      { name: ' Sjedenje uz Zid ', length: 20 },
+      { name: ' Superman', length: 30 },
+      { name: ' Sjedenje uz Zid ', length: 25 },
       { name: ' Side Planks', length: 60 },
       { name: ' Biciklo ', length: 30 },
       { name: ' Plank Trcanje', length: 30 },
       { name: ' 20 x Cucnjeva', length: 30 },
       { name: ' V Plank', length: 20 },
-      { name: 'Sjedenje uz Zid', length: 15 },
+      { name: 'Sjedenje uz Zid', length: 20 },
       { name: ' Koljeno-lakat ', length: 30 },
       { name: ' 20 x Sklekova', length: 30 },
       { name: ' Cat Plank ', length: 40 },
@@ -29,8 +29,10 @@ export class UserService {
 
   accept = new EventEmitter<boolean>();
 
-  getLvl1() {
-    return this.lvl1;
+  getProgram(lvl: string) {
+    if (lvl === 'lvl1') {
+      return this.lvl1;
+    }
   }
 
   getProgDescription(lvl: number): string[] {

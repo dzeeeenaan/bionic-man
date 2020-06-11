@@ -7,7 +7,7 @@ import {
   ViewChild,
   ElementRef,
 } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-start',
@@ -17,27 +17,30 @@ import { Router } from '@angular/router';
 export class StartComponent implements OnInit {
   @ViewChild('cont', { static: true }) cont: ElementRef;
 
+  isPaused: boolean = false;
   roundName: string = 'Trening Pocinje';
   roundLength: number;
   restTime: number;
-  count: number;
-  index: number = 17;
+  count: number | string;
+  index: number = 0;
   type: string = 'train';
   plan: Exercise;
+  save: number;
 
   constructor(
     private rend: Renderer2,
     private userS: UserService,
-    private route: Router
+    private route: Router,
+    private rout: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
     this.rend.addClass(this.cont.nativeElement, 'preImg');
     this.startCounter(5);
+    let input = this.rout.snapshot.params['start'];
+    console.log(input);
+    this.plan = this.userS.getProgram(input);
 
-    //prepare everything
-
-    this.plan = this.userS.getLvl1();
     setTimeout(() => {
       this.startExercise();
     }, 5000);
@@ -66,15 +69,18 @@ export class StartComponent implements OnInit {
   startTimer() {
     this.count = this.roundLength;
     const cont = setInterval(() => {
-      this.count -= 1;
-      if (this.count <= 0) {
-        if (this.index === this.plan.program.length) {
-          this.finishedProgram();
-          clearInterval(cont);
-        } else {
-          clearInterval(cont);
-          this.prepareValues(this.type);
-          this.startTimer();
+      if (!this.isPaused) {
+        this.count = parseInt(this.count.toString()) - 1;
+        console.log(this.count);
+        if (this.count <= 0) {
+          if (this.index === this.plan.program.length) {
+            this.finishedProgram();
+            clearInterval(cont);
+          } else {
+            clearInterval(cont);
+            this.prepareValues(this.type);
+            this.startTimer();
+          }
         }
       }
     }, 1000);
@@ -90,8 +96,19 @@ export class StartComponent implements OnInit {
   startCounter(time: number) {
     this.count = time;
     const int = setInterval(() => {
-      this.count -= 1;
+      this.count = parseInt(this.count.toString()) - 1;
       if (this.count <= 0) clearInterval(int);
     }, 1000);
+  }
+
+  pause() {
+    this.isPaused = !this.isPaused;
+    console.log(this.count);
+    if (this.isPaused) {
+      this.save = parseInt(this.count.toString());
+      this.count = 'Nastavi';
+    } else {
+      this.count = this.save;
+    }
   }
 }
