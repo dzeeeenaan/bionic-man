@@ -8,18 +8,21 @@
     />
     <ul class="dropdown" [ngClass]="{ display: open }">
       <li
+        (click)="open = !open"
         [routerLink]="['/train/prepare']"
         routerLinkActive="router-link-active"
       >
         Trening
       </li>
       <li
+        (click)="open = !open"
         [routerLink]="['/train/statistic']"
         routerLinkActive="router-link-active"
       >
         Statistika
       </li>
       <li
+        (click)="open = !open"
         [routerLink]="['/train/quotes']"
         routerLinkActive="router-link-active"
       >
