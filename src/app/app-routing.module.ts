@@ -7,6 +7,8 @@ import { QuotesComponent } from './training/dashboard/quotes/quotes.component';
 import { StartComponent } from './training/dashboard/start/start.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NgModule } from '@angular/core';
+import { setUpComponent } from './training/setUp/setUp.component';
+import { DashboardComponent } from './training/dashboard/dashboard.component';
 
 const appRoutes: Routes = [
   {

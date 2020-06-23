@@ -1,5 +1,5 @@
 import { Exercise } from './exercise.model';
-import { EventEmitter } from '@angular/core';
+import { Subject } from 'rxjs';
 
 export class UserService {
   private user: string = 'hey';
@@ -27,7 +27,7 @@ export class UserService {
     restTime: 20,
   };
 
-  accept = new EventEmitter<boolean>();
+  accept = new Subject<boolean>();
 
   getProgram(lvl: string) {
     if (lvl === 'lvl1') {
@@ -58,6 +58,6 @@ export class UserService {
   }
 
   accepted() {
-    this.accept.emit(true);
+    this.accept.next(true);
   }
 }

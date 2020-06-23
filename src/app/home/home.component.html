@@ -1,5 +1,27 @@
 <div class="container">
-  <h3 class="title">BIONIC MAN</h3>
-  <input type="text" maxlength="3" placeholder="Unesi kod" #name />
-  <button class="btn" (click)="start(name)">Log IN</button>
+  <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <div class="title"><p>BIONIC MAN</p></div>
+    <div class="label-cont">
+      <label for="">Username </label>
+      <input type="text" formControlName="username" />
+      <!-- <p class="err-msg">
+        Invalid Name
+      </p> -->
+      <label for="">Password</label>
+      <input type="password" formControlName="password" />
+    </div>
+    <div>
+      <p class="warning" *ngIf="wrongLogin">
+        Incorrect Login or Password
+      </p>
+      <button
+        class="btn invalid"
+        type="submit"
+        #logButton
+        [disabled]="!signUpForm.valid"
+      >
+        Log IN
+      </button>
+    </div>
+  </form>
 </div>
