@@ -7,14 +7,15 @@ import { QuotesComponent } from './training/dashboard/quotes/quotes.component';
 import { StartComponent } from './training/dashboard/start/start.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NgModule } from '@angular/core';
-import { setUpComponent } from './training/setUp/setUp.component';
-import { DashboardComponent } from './training/dashboard/dashboard.component';
+import { WeclomeComponent } from './training/dashboard/welcome/weclome.component';
 
 const appRoutes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    redirectTo: 'login',
+    pathMatch: 'full',
   },
+  { path: 'login', component: HomeComponent },
   {
     path: 'something',
     component: PageNotFoundComponent,
@@ -23,7 +24,9 @@ const appRoutes: Routes = [
     path: 'train',
     component: TrainingComponent,
     children: [
+      { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
       { path: 'prepare', component: PrepareComponent },
+      { path: 'welcome', component: WeclomeComponent },
       { path: 'statistic', component: StatisticComponent },
       { path: 'quotes', component: QuotesComponent },
       { path: ':start', component: StartComponent },

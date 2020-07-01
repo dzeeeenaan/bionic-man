@@ -12,8 +12,6 @@ export class TrainingComponent implements OnInit {
   constructor(private userS: UserService) {}
 
   ngOnInit(): void {
-    this.user = this.userS.getUser();
-    console.log(this.accepted);
     if (this.userS.accept) {
       this.userS.accept.subscribe((value) => {
         this.accepted = value;

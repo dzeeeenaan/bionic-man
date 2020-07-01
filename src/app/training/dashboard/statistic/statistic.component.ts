@@ -1,3 +1,4 @@
+import { UserService } from 'src/app/user.service';
 import { Component, OnInit, Renderer2 } from '@angular/core';
 
 @Component({
@@ -6,8 +7,8 @@ import { Component, OnInit, Renderer2 } from '@angular/core';
   styleUrls: ['./statistic.component.scss'],
 })
 export class StatisticComponent implements OnInit {
-  open: boolean;
-  constructor(private render: Renderer2) {}
+  open: boolean = false;
+  constructor(private render: Renderer2, private userS: UserService) {}
 
   ngOnInit(): void {}
 }

@@ -1,54 +1,70 @@
 header {
-  font-weight: 100;
+  font-weight: 200;
   height: 70px;
-  font-size: 1.5rem;
-  position: re;
+  font-size: 1.4rem;
   display: flex;
+  position: relative;
   justify-content: space-between;
   padding: 0 1rem;
   align-items: center;
-  background: rgb(77, 74, 74);
+  background: rgb(201, 199, 199);
+  border-bottom: whitesmoke;
 }
 .dropdown {
   position: absolute;
-  list-style: none;
-  background: rgb(226, 225, 225);
-  width: 110px;
-  border-radius: 2px;
-  right: -23px;
-  top: 68px;
+  background: rgb(201, 199, 199);
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  right: 0;
+  top: 70px;
   display: none;
   text-align: center;
   color: black;
-  z-index: 1;
+  z-index: 10;
   li {
-    border-top: 1px solid black;
-    padding: 0.5rem;
+    border-top: 1.5px solid black;
+    padding: 0.5rem 0;
+    text-transform: uppercase;
   }
 }
+.backdrop {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  background: rgba(0, 0, 0, 0.712);
+  z-index: 5;
+}
+
 .display {
   display: block;
-  animation: drop 0.6s forwards;
+}
+.drop {
+  display: block;
+  animation: 0.7s linear jebemtikruh forwards;
 }
 .menu {
-  position: relative;
   margin-right: 0.5rem;
   display: flex;
   align-items: center;
 }
 .preview {
-  font-weight: 100;
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: black;
 }
 .router-link-active {
-  background: rgb(77, 74, 74);
-  color: rgb(236, 233, 233);
+  font-weight: 900;
 }
 
-@keyframes drop {
+@keyframes jebemtikruh {
   from {
-    height: 0;
+    max-height: 0px;
   }
   to {
-    height: 140px;
+    max-height: 500px;
   }
 }

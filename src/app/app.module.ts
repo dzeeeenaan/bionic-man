@@ -16,7 +16,10 @@ import { MenuComponent } from './training/dashboard/menu/menu.component';
 import { StartComponent } from './training/dashboard/start/start.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
-import { PostService } from './post.service';
+import { AuthService } from './home/auth.service';
+import { WeclomeComponent } from './training/dashboard/welcome/weclome.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { LoadingSpinnerComponent } from './home/loading-spinner/loading-spinner.component';
 
 const appRoutes: Routes = [
   {
@@ -46,6 +49,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    LoadingSpinnerComponent,
     HomeComponent,
     TrainingComponent,
     setUpComponent,
@@ -56,14 +60,16 @@ const appRoutes: Routes = [
     MenuComponent,
     StartComponent,
     PageNotFoundComponent,
+    WeclomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NoopAnimationsModule,
   ],
-  providers: [UserService],
+  providers: [UserService, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

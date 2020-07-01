@@ -2,8 +2,8 @@
   <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
     <div class="title"><p>BIONIC MAN</p></div>
     <div class="label-cont">
-      <label for="">Username </label>
-      <input type="text" formControlName="username" />
+      <label for="">Email </label>
+      <input type="text" formControlName="email" />
       <!-- <p class="err-msg">
         Invalid Name
       </p> -->
@@ -11,17 +11,22 @@
       <input type="password" formControlName="password" />
     </div>
     <div>
-      <p class="warning" *ngIf="wrongLogin">
-        Incorrect Login or Password
+      <p class="warning" *ngIf="error">
+        Netacan login , probaj ponovo
       </p>
       <button
         class="btn invalid"
         type="submit"
         #logButton
         [disabled]="!signUpForm.valid"
+        *ngIf="!isLoading"
       >
         Log IN
       </button>
+      <app-loading-spinner
+        *ngIf="isLoading"
+        style="text-align: center; margin: auto;"
+      ></app-loading-spinner>
     </div>
   </form>
 </div>

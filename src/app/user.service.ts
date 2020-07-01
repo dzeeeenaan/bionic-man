@@ -2,7 +2,8 @@ import { Exercise } from './exercise.model';
 import { Subject } from 'rxjs';
 
 export class UserService {
-  private user: string = 'hey';
+  open = new Subject<boolean>();
+
   private lvl1: Exercise = {
     program: [
       { name: ' 20 x Sklekova ', length: 25 },
@@ -47,14 +48,6 @@ export class UserService {
         'Fokus na Noge',
       ];
     }
-  }
-
-  setUser(name: string) {
-    this.user = name;
-  }
-
-  getUser() {
-    return this.user;
   }
 
   accepted() {

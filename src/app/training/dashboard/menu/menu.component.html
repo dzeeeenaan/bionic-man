@@ -1,33 +1,36 @@
 <header>
-  <h3 class="preview">Pregled</h3>
-  <div class="menu">
-    <img
-      src="../../../assets/img/icons8-menu.svg"
-      alt=""
-      (click)="open = !open"
-    />
-    <ul class="dropdown" [ngClass]="{ display: open }">
-      <li
-        (click)="open = !open"
-        [routerLink]="['/train/prepare']"
-        routerLinkActive="router-link-active"
-      >
-        Trening
-      </li>
-      <li
-        (click)="open = !open"
-        [routerLink]="['/train/statistic']"
-        routerLinkActive="router-link-active"
-      >
-        Statistika
-      </li>
-      <li
-        (click)="open = !open"
-        [routerLink]="['/train/quotes']"
-        routerLinkActive="router-link-active"
-      >
-        Quote
-      </li>
-    </ul>
-  </div>
+  <h3 class="preview">{{ selected }}</h3>
+
+  <img src="../../../assets/img/icons8-menu.svg" alt="" (click)="open('')" />
+  <ul class="dropdown" [ngClass]="{ drop: opened }">
+    <li
+      (click)="open('POCETNA')"
+      [routerLink]="['/train/welcome']"
+      routerLinkActive="router-link-active"
+    >
+      Pocetna
+    </li>
+    <li
+      (click)="open('TRENING')"
+      [routerLink]="['/train/prepare']"
+      routerLinkActive="router-link-active"
+    >
+      Trening
+    </li>
+    <li
+      (click)="open('STATISTIKA')"
+      [routerLink]="['/train/statistic']"
+      routerLinkActive="router-link-active"
+    >
+      STATISTIKA
+    </li>
+    <li
+      (click)="open('KVOTE')"
+      [routerLink]="['/train/quotes']"
+      routerLinkActive="router-link-active"
+    >
+      Kvote
+    </li>
+  </ul>
 </header>
+<div class="backdrop" [ngClass]="{ display: opened }"></div>

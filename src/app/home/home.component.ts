@@ -1,5 +1,3 @@
-import { UserService } from './../user.service';
-import { Post } from './../post.model';
 import {
   Component,
   OnInit,
@@ -12,7 +10,7 @@ import * as _ from 'underscore';
 
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { PostService } from '../post.service';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-home',
@@ -21,27 +19,20 @@ import { PostService } from '../post.service';
 })
 export class HomeComponent implements OnInit {
   @ViewChild('logButton') logButton: ElementRef;
-  wrongLogin: boolean;
+  error = null;
+  isLoading = false;
   signUpForm: FormGroup;
   viable: boolean = false;
-  userObject = {
-    username: '',
-    password: '',
-  };
 
   constructor(
     private router: Router,
     private render: Renderer2,
-    private postService: PostService,
-    private UserS: UserService
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
     this.signUpForm = new FormGroup({
-      username: new FormControl(null, [
-        Validators.required,
-        this.validUsername.bind(this),
-      ]),
+      email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, [
         Validators.minLength(5),
         Validators.required,
@@ -50,20 +41,20 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmit() {
-    this.userObject = this.signUpForm.value;
-    console.log(this.userObject);
-    //get login data from server
-    this.postService.getActiveUsers().subscribe((result) => {
-      result.forEach((value: Post) => {
-        if (_.isEqual(value.data, this.userObject)) {
-          this.UserS.setUser(this.userObject.username.toUpperCase());
+    this.error = null;
+    this.isLoading = true;
+    this.authService
+      .login(this.signUpForm.value.email, this.signUpForm.value.password)
+      .subscribe(
+        (data) => {
+          this.isLoading = false;
           this.router.navigate(['/train']);
-        } else {
-          this.wrongLogin = true;
-          this.shake();
+        },
+        (errorCode) => {
+          this.isLoading = false;
+          this.error = errorCode;
         }
-      });
-    });
+      );
   }
 
   shake() {
@@ -71,13 +62,5 @@ export class HomeComponent implements OnInit {
     setTimeout(() => {
       this.render.removeClass(this.logButton.nativeElement, 'shake');
     }, 500);
-  }
-
-  validUsername(control: FormControl): { [s: string]: boolean } {
-    if (control.value) {
-      if (control.value.match('^[A-Za-z0-9]+$') === null)
-        return { notValid: true };
-      return null;
-    }
   }
 }

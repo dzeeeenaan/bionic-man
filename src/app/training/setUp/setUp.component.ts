@@ -11,9 +11,8 @@ export class setUpComponent {
   accepted: boolean = false;
   constructor(private userS: UserService) {}
 
-  ngOnInit(): void {
-    this.user = this.userS.getUser();
-  }
+  ngOnInit(): void {}
+
   accept() {
     this.userS.accepted();
   }
