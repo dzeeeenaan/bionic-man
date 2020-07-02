@@ -11,7 +11,6 @@ import { UserService } from './user.service';
 import { DashboardComponent } from './training/dashboard/dashboard.component';
 import { PrepareComponent } from './training/dashboard/prepare/prepare.component';
 import { StatisticComponent } from './training/dashboard/statistic/statistic.component';
-import { QuotesComponent } from './training/dashboard/quotes/quotes.component';
 import { MenuComponent } from './training/dashboard/menu/menu.component';
 import { StartComponent } from './training/dashboard/start/start.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -20,31 +19,8 @@ import { AuthService } from './home/auth.service';
 import { WeclomeComponent } from './training/dashboard/welcome/weclome.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { LoadingSpinnerComponent } from './home/loading-spinner/loading-spinner.component';
-
-const appRoutes: Routes = [
-  {
-    path: '',
-    component: HomeComponent,
-  },
-  {
-    path: 'something',
-    component: PageNotFoundComponent,
-  },
-  {
-    path: 'train',
-    component: TrainingComponent,
-    children: [
-      { path: 'prepare', component: PrepareComponent },
-      { path: 'statistic', component: StatisticComponent },
-      { path: 'quotes', component: QuotesComponent },
-      { path: ':start', component: StartComponent },
-    ],
-  },
-  {
-    path: '**',
-    redirectTo: '/something',
-  },
-];
+import { BmiComponent } from './training/dashboard/bmi/bmi.component';
+import { AuthGuardService } from './home/auth-guard';
 
 @NgModule({
   declarations: [
@@ -56,11 +32,11 @@ const appRoutes: Routes = [
     DashboardComponent,
     PrepareComponent,
     StatisticComponent,
-    QuotesComponent,
     MenuComponent,
     StartComponent,
     PageNotFoundComponent,
     WeclomeComponent,
+    BmiComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +45,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     NoopAnimationsModule,
   ],
-  providers: [UserService, AuthService],
+  providers: [UserService, AuthService, AuthGuardService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

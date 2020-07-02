@@ -1,3 +1,4 @@
+import { User } from './../user.model';
 import {
   Component,
   OnInit,
@@ -20,6 +21,7 @@ import { AuthService } from './auth.service';
 export class HomeComponent implements OnInit {
   @ViewChild('logButton') logButton: ElementRef;
   error = null;
+  user: User;
   isLoading = false;
   signUpForm: FormGroup;
   viable: boolean = false;
@@ -38,6 +40,8 @@ export class HomeComponent implements OnInit {
         Validators.required,
       ]),
     });
+
+    this.authService.autoLogin();
   }
 
   onSubmit() {
@@ -49,6 +53,7 @@ export class HomeComponent implements OnInit {
         (data) => {
           this.isLoading = false;
           this.router.navigate(['/train']);
+          console.log(data);
         },
         (errorCode) => {
           this.isLoading = false;

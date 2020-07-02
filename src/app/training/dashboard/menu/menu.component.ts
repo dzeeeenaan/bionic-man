@@ -1,6 +1,7 @@
 import { UserService } from 'src/app/user.service';
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/home/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -9,13 +10,12 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
   opened: boolean;
-  menuItems = ['POCETNA', 'TRENING', 'KVOTE', 'STATISTIKA'];
   selected: string;
 
-  constructor(private render: Renderer2) {}
+  constructor(private render: Renderer2, private authService: AuthService) {}
 
   ngOnInit(): void {
-    this.selected = this.menuItems[2];
+    this.selected = 'POCETNA';
   }
 
   wasClicked(event, cir1, cir2, cir3) {
@@ -31,5 +31,8 @@ export class MenuComponent implements OnInit {
   open(name: string) {
     name === '' ? this.selected : (this.selected = name);
     this.opened = !this.opened;
+  }
+  logout() {
+    this.authService.logout();
   }
 }

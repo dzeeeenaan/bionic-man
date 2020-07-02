@@ -5,7 +5,7 @@
 }
 
 body {
-  background: linear-gradient(to right, #3a3939 0%, black 100%);
+  background: linear-gradient(to right, #414040 0%, rgb(37, 37, 37) 100%);
   font-family: Oxygen;
   color: #eeeeec;
   //   background: rgb(26, 26, 31);
@@ -37,5 +37,11 @@ body {
   );
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

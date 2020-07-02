@@ -7,12 +7,12 @@ header {
   justify-content: space-between;
   padding: 0 1rem;
   align-items: center;
-  background: rgb(201, 199, 199);
+  background: rgb(238, 238, 238);
   border-bottom: whitesmoke;
 }
 .dropdown {
   position: absolute;
-  background: rgb(201, 199, 199);
+  background: rgb(238, 238, 238);
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -44,7 +44,7 @@ header {
 }
 .drop {
   display: block;
-  animation: 0.7s linear jebemtikruh forwards;
+  animation: 0.6s linear jebemtikruh forwards;
 }
 .menu {
   margin-right: 0.5rem;
@@ -53,7 +53,7 @@ header {
 }
 .preview {
   font-size: 1.8rem;
-  font-weight: 400;
+  font-weight: 700;
   color: black;
 }
 .router-link-active {

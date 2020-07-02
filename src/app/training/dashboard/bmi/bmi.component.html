@@ -1,0 +1,27 @@
+<div class="container">
+  <form [formGroup]="submitForm" (ngSubmit)="getBMI()">
+    <p class="bmi-info">BMI KALKULATOR</p>
+    <div class="flex">
+      <label for="visina">Visina</label>
+      <input type="number" formControlName="height" />
+      <p>cm</p>
+    </div>
+
+    <div class="flex">
+      <label for="visina">Tezina</label>
+      <input type="number" formControlName="weight" />
+      <p>kg</p>
+    </div>
+
+    <div class="flex">
+      <label for="visina">Starost</label>
+      <input type="number" formControlName="age" />
+      <p>god</p>
+    </div>
+    <button class="btn">IZRACUNAJ</button>
+  </form>
+  <div class="result-container" *ngIf="calculated">
+    <h2 class="index-num">{{ bmiIndex }}</h2>
+    <p class="index-text">{{ bmiInfo }}</p>
+  </div>
+</div>

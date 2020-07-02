@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  align-content: center;
+  font-size: 1.8rem;
+}
+.bmi-info {
+  font-weight: 300;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  text-align: center;
+  height: 55vh;
+  justify-content: space-evenly;
+  input {
+    width: 80px;
+    text-align: center;
+    border-radius: 2px;
+    border: none;
+    line-height: 1.7rem;
+    font-size: 1.6rem;
+    margin: 0 0.2rem 0 1rem;
+  }
+  label {
+    display: inline-block;
+    width: 140px;
+    text-align: right;
+  }
+}
+.flex {
+  display: flex;
+  padding-right: 1.5rem;
+  p {
+    font-size: 1.3rem;
+    font-weight: 400;
+    align-self: flex-end;
+  }
+}
+.btn {
+  align-self: center;
+  font-weight: 600;
+}
+.result-container {
+  text-align: center;
+}
+.index-num {
+  font-size: 2.7rem;
+  padding-bottom: 0.5rem;
+}
+.index-text {
+  font-size: 1.4rem;
+  font-weight: 200;
+  margin: 0 2rem;
+}
