@@ -54,14 +54,13 @@ export class AuthService {
     if (!userData) {
       return;
     } else {
-      console.log('im autologin');
+      console.log('im autologin1');
       const newUser: User = new User(
         userData.email,
         userData.id,
         userData._token,
         new Date(userData._tokenExpirationDate)
       );
-      console.log(newUser);
       this.user.next(newUser);
     }
   }
