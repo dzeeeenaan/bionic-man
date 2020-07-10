@@ -44,9 +44,10 @@ export class AuthService {
       );
   }
   logout() {
+    console.log(this.user != null);
     this.user.next(null);
-    this.router.navigate(['/login']);
     localStorage.clear();
+    this.router.navigate(['/login']);
   }
 
   autoLogin() {
@@ -54,7 +55,6 @@ export class AuthService {
     if (!userData) {
       return;
     } else {
-      console.log('im autologin1');
       const newUser: User = new User(
         userData.email,
         userData.id,

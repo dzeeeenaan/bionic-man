@@ -5,6 +5,7 @@ import {
   Renderer2,
   ViewChild,
   ElementRef,
+  OnDestroy,
 } from '@angular/core';
 import { Router } from '@angular/router';
 import * as _ from 'underscore';
@@ -40,7 +41,6 @@ export class HomeComponent implements OnInit {
         Validators.required,
       ]),
     });
-
     this.authService.autoLogin();
   }
 

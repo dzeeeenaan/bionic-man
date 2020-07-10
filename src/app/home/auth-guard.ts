@@ -14,10 +14,9 @@ export class AuthGuardService implements CanActivate {
       }),
       tap((isAuth) => {
         if (isAuth) {
-          console.log('true');
+          console.log('treu');
           return true;
         } else {
-          console.log('wron');
           return this.router.navigate(['/login']);
         }
       })

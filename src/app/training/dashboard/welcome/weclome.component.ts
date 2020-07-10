@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-weclome',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./weclome.component.scss'],
 })
 export class WeclomeComponent implements OnInit {
-  user: string = 'Dzenan';
+  user: string = 'User';
   constructor() {}
 
   ngOnInit(): void {}

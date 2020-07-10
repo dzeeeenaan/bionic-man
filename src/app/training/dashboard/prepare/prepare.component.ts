@@ -45,7 +45,7 @@ export class PrepareComponent implements OnInit {
         this.render.removeClass(event.target, 'shake');
       }, 500);
     } else {
-      this.route.navigate(['/train/lvl1']);
+      this.route.navigate(['/train/start']);
     }
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/home/auth.service';
 
 @Component({
   selector: 'app-bmi',
@@ -12,7 +13,7 @@ export class BmiComponent implements OnInit {
   bmiIndex: number;
   bmiInfo: string;
 
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
     this.submitForm = new FormGroup({

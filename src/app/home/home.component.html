@@ -1,12 +1,23 @@
 <div class="container">
   <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-    <div class="title"><p>BIONIC MAN</p></div>
+    <div class="flex">
+      <div class="title"><p>BIONIC MAN</p></div>
+      <img src="../../assets/bionic_logo.png" alt="" />
+    </div>
+
     <div class="label-cont">
       <label for="">Email </label>
       <input type="text" formControlName="email" />
-      <!-- <p class="err-msg">
-        Invalid Name
-      </p> -->
+      <p
+        class="err-msg"
+        *ngIf="
+          !signUpForm.get('email').valid &&
+          signUpForm.get('email').touched &&
+          signUpForm.get('email').dirty
+        "
+      >
+        Unesite pravilan Email
+      </p>
       <label for="">Password</label>
       <input type="password" formControlName="password" />
     </div>
@@ -14,15 +25,10 @@
       <p class="warning" *ngIf="error">
         Netacan login , probaj ponovo
       </p>
-      <button
-        class="btn invalid"
-        type="submit"
-        #logButton
-        [disabled]="!signUpForm.valid"
-        *ngIf="!isLoading"
-      >
+      <button class="btn invalid" type="submit" #logButton *ngIf="!isLoading">
         Log IN
       </button>
+
       <app-loading-spinner
         *ngIf="isLoading"
         style="text-align: center; margin: auto;"

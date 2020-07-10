@@ -1,7 +1,9 @@
 <div class="container" #cont>
-  <h2>Level 1</h2>
+  <h2>{{ exercise_name }}</h2>
   <h2 class="roundName">{{ roundName }}</h2>
-  <div class="counter circle" (click)="pause()">
-    <p [ngClass]="{ paused: isPaused }">{{ count }}</p>
-  </div>
+  <mat-progress-spinner
+    diameter="180"
+    strokeWidth="7"
+    [value]="100"
+  ></mat-progress-spinner>
 </div>

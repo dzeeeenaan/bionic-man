@@ -17,6 +17,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class StartComponent implements OnInit {
   @ViewChild('cont', { static: true }) cont: ElementRef;
 
+  progress_value: number = 0;
+  exercise_name = 'Killer Core';
   isPaused: boolean = false;
   roundName: string = 'Trening Pocinje';
   roundLength: number;
@@ -27,27 +29,16 @@ export class StartComponent implements OnInit {
   plan: Exercise;
   save: number;
 
-  constructor(
-    private rend: Renderer2,
-    private userS: UserService,
-    private route: Router,
-    private rout: ActivatedRoute
-  ) {}
+  constructor(private userS: UserService, private router: Router) {}
 
   ngOnInit(): void {
-    this.rend.addClass(this.cont.nativeElement, 'preImg');
-    this.startCounter(5);
-    let input = this.rout.snapshot.params['start'];
-    console.log(input);
-    this.plan = this.userS.getProgram(input);
-
+    this.plan = this.userS.getProgram('lvl1');
     setTimeout(() => {
       this.startExercise();
     }, 5000);
   }
 
   startExercise() {
-    //set values for round
     this.prepareValues(this.type);
     this.startTimer();
   }
@@ -72,6 +63,7 @@ export class StartComponent implements OnInit {
       if (!this.isPaused) {
         this.count = parseInt(this.count.toString()) - 1;
         console.log(this.count);
+        this.progress_value = 100 - (this.count / this.roundLength) * 100;
         if (this.count <= 0) {
           if (this.index === this.plan.program.length) {
             this.finishedProgram();
@@ -89,16 +81,8 @@ export class StartComponent implements OnInit {
   finishedProgram() {
     this.roundName = 'Zavrsen Trening';
     setTimeout(() => {
-      this.route.navigate(['/train']);
+      this.router.navigate(['/train']);
     }, 3000);
-  }
-
-  startCounter(time: number) {
-    this.count = time;
-    const int = setInterval(() => {
-      this.count = parseInt(this.count.toString()) - 1;
-      if (this.count <= 0) clearInterval(int);
-    }, 1000);
   }
 
   pause() {

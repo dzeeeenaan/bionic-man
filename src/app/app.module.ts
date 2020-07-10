@@ -5,7 +5,6 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { Routes } from '@angular/router';
 import { TrainingComponent } from './training/training.component';
 import { UserService } from './user.service';
 import { DashboardComponent } from './training/dashboard/dashboard.component';
@@ -17,10 +16,12 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './home/auth.service';
 import { WeclomeComponent } from './training/dashboard/welcome/weclome.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { LoadingSpinnerComponent } from './home/loading-spinner/loading-spinner.component';
 import { BmiComponent } from './training/dashboard/bmi/bmi.component';
 import { AuthGuardService } from './home/auth-guard';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LoginAuthGuard } from './home/login-guard';
 
 @NgModule({
   declarations: [
@@ -42,10 +43,11 @@ import { AuthGuardService } from './home/auth-guard';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    MatProgressSpinnerModule,
+    DragDropModule,
     HttpClientModule,
-    NoopAnimationsModule,
   ],
-  providers: [UserService, AuthService, AuthGuardService],
+  providers: [UserService, AuthService, AuthGuardService, LoginAuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -8,14 +8,16 @@
 }
 .bmi-info {
   font-weight: 300;
+  margin: 0.5rem 1rem;
 }
+
 form {
   display: flex;
   flex-direction: column;
   margin: auto;
   text-align: center;
-  height: 55vh;
-  justify-content: space-evenly;
+  height: 60vh;
+  justify-content: space-between;
   input {
     width: 80px;
     text-align: center;
@@ -33,7 +35,7 @@ form {
 }
 .flex {
   display: flex;
-  padding-right: 1.5rem;
+  margin: 0.6rem 0;
   p {
     font-size: 1.3rem;
     font-weight: 400;
@@ -55,4 +57,7 @@ form {
   font-size: 1.4rem;
   font-weight: 200;
   margin: 0 2rem;
+}
+.empty-input {
+  background: rgb(211, 60, 60);
 }

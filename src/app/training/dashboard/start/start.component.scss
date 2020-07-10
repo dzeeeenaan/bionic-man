@@ -1,5 +1,5 @@
 .container {
-  height: 100vh;
+  height: 85vh;
   width: 100%;
   background-size: cover;
   display: flex;
@@ -33,18 +33,6 @@
     padding: 0.5rem;
   }
 }
-
 .paused {
   font-size: 1.6rem;
-}
-
-@keyframes show {
-  from {
-    background: url(../../../../assets/img/loadin1.jpg) no-repeat center;
-    background-size: cover;
-  }
-  to {
-    background: url(../../../../assets/img/loadin2.jpg) no-repeat center;
-    background-size: cover;
-  }
 }

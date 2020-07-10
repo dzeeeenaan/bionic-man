@@ -9,6 +9,7 @@ import { NgModule } from '@angular/core';
 import { WeclomeComponent } from './training/dashboard/welcome/weclome.component';
 import { BmiComponent } from './training/dashboard/bmi/bmi.component';
 import { AuthGuardService } from './home/auth-guard';
+import { LoginAuthGuard } from './home/login-guard';
 
 const appRoutes: Routes = [
   {
@@ -16,7 +17,7 @@ const appRoutes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full',
   },
-  { path: 'login', component: HomeComponent },
+  { path: 'login', canActivate: [LoginAuthGuard], component: HomeComponent },
   {
     path: 'something',
     component: PageNotFoundComponent,
@@ -31,7 +32,7 @@ const appRoutes: Routes = [
       { path: 'bmi', component: BmiComponent },
       { path: 'welcome', component: WeclomeComponent },
       { path: 'statistic', component: StatisticComponent },
-      { path: ':start', component: StartComponent },
+      { path: 'start', component: StartComponent },
     ],
   },
   {
