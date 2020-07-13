@@ -3,26 +3,25 @@
     <p class="bmi-info">
       Izracunaj svoj BMI Index
     </p>
-    <div class="flex-cont">
-      <div class="flex">
-        <label for="visina">Visina</label>
-        <input type="number" formControlName="height" />
-        <p>cm</p>
-      </div>
 
-      <div class="flex">
-        <label for="visina">Tezina</label>
-        <input type="number" formControlName="weight" />
-        <p>kg</p>
-      </div>
+    <div class="input-container">
 
-      <div class="flex">
-        <label for="visina">Starost</label>
-        <input type="number" formControlName="age" />
-        <p>god</p>
+      <div class="form__group field">
+        <input type="input" class="form__field" placeholder="Name" name="name" id='name' formControlName="height"
+          autocomplete="off" />
+        <label for="name" class="form__label">Visina</label>
+      </div>
+      <div class="form__group field">
+        <input type="input" class="form__field" placeholder="Name" name="name" id='name' formControlName="weight"
+          autocomplete="off" />
+        <label for="name" class="form__label">Tezina</label>
+      </div>
+      <div class="form__group field">
+        <input type="input" class="form__field" placeholder="Name" name="name" id='name' formControlName="age"
+          autocomplete="off" />
+        <label for="name" class="form__label">Godine</label>
       </div>
     </div>
-
     <button class="btn">IZRACUNAJ</button>
   </form>
   <div class="result-container" *ngIf="calculated">

@@ -17,7 +17,12 @@ const appRoutes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full',
   },
-  { path: 'login', canActivate: [LoginAuthGuard], component: HomeComponent },
+  {
+    path: 'login',
+    canActivate: [LoginAuthGuard],
+    component: HomeComponent,
+    pathMatch: 'prefix',
+  },
   {
     path: 'something',
     component: PageNotFoundComponent,

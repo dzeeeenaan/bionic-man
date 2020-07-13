@@ -1,12 +1,11 @@
-.container {
-  display: flex;
-  height: 85vh;
-  list-style: none;
-  flex-direction: column;
-  width: 90%;
-  font-size: 1.4rem;
-  margin-left: 1rem;
-  li {
-    padding: 1.5rem 0;
-  }
+form {
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+    align-items: center;
+    justify-content: space-around;
+}
+input {
+    width: 50%;
+    height: 40px;
 }

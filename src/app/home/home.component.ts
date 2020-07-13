@@ -1,71 +1,52 @@
-import { User } from './../user.model';
-import {
-  Component,
-  OnInit,
-  Renderer2,
-  ViewChild,
-  ElementRef,
-  OnDestroy,
-} from '@angular/core';
-import { Router } from '@angular/router';
-import * as _ from 'underscore';
+import { User } from './../user.model'
+import { Component, OnInit, Renderer2, ViewChild, ElementRef, OnDestroy } from '@angular/core'
+import { Router } from '@angular/router'
+import * as _ from 'underscore'
 
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms'
 
-import { AuthService } from './auth.service';
+import { AuthService } from './auth.service'
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: [ './home.component.scss' ]
 })
 export class HomeComponent implements OnInit {
-  @ViewChild('logButton') logButton: ElementRef;
-  error = null;
-  user: User;
-  isLoading = false;
-  signUpForm: FormGroup;
-  viable: boolean = false;
+    loginError = false
+    isLoading = false
+    signUpForm: FormGroup
 
-  constructor(
-    private router: Router,
-    private render: Renderer2,
-    private authService: AuthService
-  ) {}
+    constructor(private router: Router, private render: Renderer2, private authService: AuthService) {}
 
-  ngOnInit(): void {
-    this.signUpForm = new FormGroup({
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      password: new FormControl(null, [
-        Validators.minLength(5),
-        Validators.required,
-      ]),
-    });
-    this.authService.autoLogin();
-  }
+    ngOnInit(): void {
+        this.signUpForm = new FormGroup({
+            email: new FormControl(null, [ Validators.required, Validators.email ]),
+            password: new FormControl(null, [ Validators.minLength(5), Validators.required ])
+        })
+        this.authService.autoLogin()
+    }
 
-  onSubmit() {
-    this.error = null;
-    this.isLoading = true;
-    this.authService
-      .login(this.signUpForm.value.email, this.signUpForm.value.password)
-      .subscribe(
-        (data) => {
-          this.isLoading = false;
-          this.router.navigate(['/train']);
-          console.log(data);
-        },
-        (errorCode) => {
-          this.isLoading = false;
-          this.error = errorCode;
-        }
-      );
-  }
+    onSubmit() {
+        this.loginError = false
+        this.isLoading = true
+        this.authService.login(this.signUpForm.value.email, this.signUpForm.value.password).subscribe(
+            (data) => {
+                this.isLoading = false
+                this.router.navigate([ '/train' ])
+                console.log(data)
+            },
+            (errorCode) => {
+                this.isLoading = false
+                this.setLoginError()
+            }
+        )
+    }
 
-  shake() {
-    this.render.addClass(this.logButton.nativeElement, 'shake');
-    setTimeout(() => {
-      this.render.removeClass(this.logButton.nativeElement, 'shake');
-    }, 500);
-  }
+    setLoginError() {
+        this.loginError = true
+        setTimeout(() => {
+            this.loginError = false
+        }, 1500)
+    }
 }

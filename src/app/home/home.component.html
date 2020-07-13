@@ -1,38 +1,35 @@
 <div class="container">
   <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-    <div class="flex">
-      <div class="title"><p>BIONIC MAN</p></div>
+    <div class="center">
+      <div class="title">
+        <p>BIONIC MAN</p>
+      </div>
       <img src="../../assets/bionic_logo.png" alt="" />
     </div>
 
     <div class="label-cont">
-      <label for="">Email </label>
-      <input type="text" formControlName="email" />
-      <p
-        class="err-msg"
-        *ngIf="
-          !signUpForm.get('email').valid &&
-          signUpForm.get('email').touched &&
-          signUpForm.get('email').dirty
-        "
-      >
-        Unesite pravilan Email
-      </p>
-      <label for="">Password</label>
-      <input type="password" formControlName="password" />
+      <div class="form__group field">
+        <input type="input" class="form__field" placeholder="Name" name="name" id='name' formControlName="email"
+          autocomplete="off" />
+        <label for="name" class="form__label">Email</label>
+      </div>
+
+      <div class="form__group field">
+        <input type="password" class="form__field" placeholder="Name" name="name" id='name'
+          formControlName="password" />
+        <label for="name" class="form__label">Password</label>
+      </div>
+
     </div>
-    <div>
-      <p class="warning" *ngIf="error">
+    <div class="center">
+      <p class="warning" *ngIf="loginError">
         Netacan login , probaj ponovo
       </p>
-      <button class="btn invalid" type="submit" #logButton *ngIf="!isLoading">
+      <button class="btn" type="submit" *ngIf="!isLoading" [disabled]='!signUpForm.valid'>
         Log IN
       </button>
 
-      <app-loading-spinner
-        *ngIf="isLoading"
-        style="text-align: center; margin: auto;"
-      ></app-loading-spinner>
+      <app-loading-spinner *ngIf="isLoading" style="text-align: center; margin: auto;"></app-loading-spinner>
     </div>
   </form>
 </div>
