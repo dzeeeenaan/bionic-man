@@ -1,38 +1,44 @@
 .container {
-  height: 85vh;
-  width: 100%;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  h2 {
-    font-size: 2.2rem;
-  }
+    height: 85vh;
+    width: 100%;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    h2 {
+        font-size: 2.2rem;
+    }
 }
 
 .preImg {
-  animation: show 5s;
+    animation: show 5s;
 }
 
 .circle {
-  width: 140px;
-  height: 140px;
-  line-height: 140px;
-  border: 1.5px solid white;
-  border-radius: 50%;
-  font-size: 4.5rem;
-  font-weight: 700;
-  margin: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  p {
-    line-height: normal;
-    padding: 0.5rem;
-  }
+    width: 140px;
+    height: 140px;
+    line-height: 140px;
+    border: 1.5px solid white;
+    border-radius: 50%;
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    p {
+        line-height: normal;
+        padding: 0.5rem;
+    }
 }
 .paused {
-  font-size: 1.6rem;
+    font-size: 1.6rem;
+}
+.progress_container {
+    height: 200px;
+}
+.current_time {
+    top: 50px;
 }

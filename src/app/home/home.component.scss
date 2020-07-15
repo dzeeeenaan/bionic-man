@@ -4,11 +4,13 @@ $white: #fff;
 $gray: #9b9b9b;
 
 form {
+    margin: auto;
     text-align: start;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     height: 100vh;
+    width: 80%;
     align-items: center;
 }
 img {
@@ -28,20 +30,23 @@ img {
     font-size: 2.7rem;
     text-shadow: 2px 2px 8px rgb(235, 233, 233);
 }
-.label-cont {
-}
+
 .center {
     text-align: center;
+}
+
+.btn {
+    padding: .5em 1.8em;
 }
 
 .form__group {
     position: relative;
     padding: 15px 0 0;
     margin-top: 10px;
-    width: 30%;
 }
 
 .form__field {
+    width: 100%;
     border: 0;
     border-bottom: 2px solid $gray;
     outline: 0;
@@ -60,6 +65,9 @@ img {
         cursor: text;
         top: 20px;
     }
+}
+.label-cont {
+    width: 100%;
 }
 
 .form__label {
@@ -92,5 +100,11 @@ img {
     &:required,
     &:invalid {
         box-shadow: none;
+    }
+}
+
+@media (min-width: 450px) {
+    form {
+        width: 250px;
     }
 }

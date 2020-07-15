@@ -5,19 +5,12 @@
 }
 
 body {
-    background: #0f2027; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #2c5364, #203a43, #0f2027); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #2c5364, #203a43, #0f2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #141e30; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #243b55, #111929); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #243b55, #111929); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-    font-family: Oxygen;
+    font-family: sans-serif;
     color: #eeeeec;
-    //   background: rgb(26, 26, 31);
-    //   background: linear-gradient(
-    //     90deg,
-    //     rgba(26, 26, 31, 1) 0%,
-    //     rgba(35, 37, 51, 1) 52%,
-    //     rgba(22, 32, 51, 1) 100%
-    //   );
 }
 .btn {
     padding: .5em 1.2em;
@@ -55,4 +48,40 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;
+}
+.block {
+    background: #141e30; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #243b55, #111929); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #243b55, #111929); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    z-index: 50;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+@media screen and (min-width: 430px) {
+    .block {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:after {
+            content: "Dekstop verzija jos u izradi ,vrati se na jebeni Portret ";
+        }
+    }
+}
+
+@media screen and (min-width: 450px) and (max-width: 750px) and (orientation: landscape) {
+    .block {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:after {
+            content: "Aplikacija nije predvidena za Landscape ,vrati se na jebeni Portret ";
+        }
+    }
 }

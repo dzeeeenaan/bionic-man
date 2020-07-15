@@ -6,23 +6,25 @@ header {
     justify-content: space-between;
     padding: 0 1rem;
     align-items: center;
-    background: rgb(238, 238, 238);
+    background: linear-gradient(120deg, #f0f5fa 0%, #e1e4ec 100%);
     border-bottom: whitesmoke;
 }
 .dropdown {
+    border-top: 1px solid grey;
     position: absolute;
-    background: rgb(238, 238, 238);
+    background: linear-gradient(120deg, #f0f5fa 0%, #e1e4ec 100%);
     width: 100vw;
     display: flex;
     flex-direction: column;
     right: 0;
     top: 65px;
+
     display: none;
     text-align: center;
     color: black;
+    border-bottom: 1px solid black;
     z-index: 10;
     li {
-        border-top: 1.5px solid black;
         padding: 0.5rem 0;
         text-transform: uppercase;
     }
@@ -51,12 +53,12 @@ header {
     align-items: center;
 }
 .preview {
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: 1.6rem;
+    font-weight: 400;
     color: black;
 }
 .router-link-active {
-    font-weight: 900;
+    font-weight: 500;
 }
 
 @keyframes jebemtikruh {

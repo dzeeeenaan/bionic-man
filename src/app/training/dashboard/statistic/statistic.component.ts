@@ -1,5 +1,6 @@
 import { FormBuilder, Validators, FormGroup } from '@angular/forms'
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, OnDestroy } from '@angular/core'
+import { Subscription } from 'rxjs'
 
 @Component({
     selector: 'app-statistic',
@@ -7,16 +8,7 @@ import { Component, OnInit } from '@angular/core'
     styleUrls: [ './statistic.component.scss' ]
 })
 export class StatisticComponent implements OnInit {
-    open: boolean = false
-    submitForm: FormGroup
-    constructor(private fb: FormBuilder) {}
+    constructor() {}
 
-    ngOnInit(): void {
-        this.submitForm = this.fb.group({
-            name: [ null, [ Validators.required, Validators.pattern(/^[a-z ,.'-]+$/i) ] ],
-            weight: [ null, Validators.required ],
-            height: [ null, Validators.required ],
-            city: [ null, Validators.required ]
-        })
-    }
+    ngOnInit(): void {}
 }

@@ -1,31 +1,60 @@
 <div class="container">
+  <p class="bmi-info">
+    Saznaj svoj Index tezine
+  </p>
   <form [formGroup]="submitForm" (ngSubmit)="getBMI()">
-    <p class="bmi-info">
-      Izracunaj svoj BMI Index
-    </p>
 
     <div class="input-container">
 
       <div class="form__group field">
         <input type="input" class="form__field" placeholder="Name" name="name" id='name' formControlName="height"
           autocomplete="off" />
+
         <label for="name" class="form__label">Visina</label>
+        <p>cm</p>
       </div>
-      <div class="form__group field">
+
+
+
+      <div class="form__group ">
         <input type="input" class="form__field" placeholder="Name" name="name" id='name' formControlName="weight"
           autocomplete="off" />
         <label for="name" class="form__label">Tezina</label>
+        <p>kg</p>
       </div>
       <div class="form__group field">
         <input type="input" class="form__field" placeholder="Name" name="name" id='name' formControlName="age"
           autocomplete="off" />
-        <label for="name" class="form__label">Godine</label>
+        <label for="name" class="form__label">Starost</label>
+        <p>god</p>
       </div>
     </div>
     <button class="btn">IZRACUNAJ</button>
   </form>
   <div class="result-container" *ngIf="calculated">
     <h2 class="index-num">{{ bmiIndex }}</h2>
-    <p class="index-text">{{ bmiInfo }}</p>
+    <table class="bmi-legend">
+      <tr>
+        <td>BMI</td>
+        <td>Klasifikacija</td>
+      </tr>
+      <tr>
+        <td>
+          <20 </td>
+        <td>Fati se kasike </td>
+      </tr>
+      <tr>
+        <td>20-25</td>
+        <td>Moze proci </td>
+      </tr>
+      <tr>
+        <td>25-30</td>
+        <td>Smanji kasiku</td>
+      </tr>
+      <tr>
+        <td>>30</td>
+        <td>Probusi kasiku</td>
+      </tr>
+    </table>
   </div>
 </div>

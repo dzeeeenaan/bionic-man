@@ -1,35 +1,19 @@
 <header>
-  <h3 class="preview">{{ selected }}</h3>
+  <h3 class="preview">{{ selected.value }}</h3>
 
   <img src="../../../assets/img/icons8-menu.svg" alt="" (click)="open('')" />
   <ul class="dropdown" [ngClass]="{ drop: opened }">
-    <li
-      (click)="open('POCETNA')"
-      [routerLink]="['/train/welcome']"
-      routerLinkActive="router-link-active"
-    >
-      Pocetna
+    <li (click)="open('HOME')" [routerLink]="['/train/welcome']" routerLinkActive="router-link-active">
+      Home
     </li>
-    <li
-      (click)="open('TRENING')"
-      [routerLink]="['/train/prepare']"
-      routerLinkActive="router-link-active"
-    >
+    <li (click)="open('TRENING')" [routerLink]="['/train/prepare']" routerLinkActive="router-link-active">
       Trening
     </li>
-    <li
-      (click)="open('STATISTIKA')"
-      [routerLink]="['/train/statistic']"
-      routerLinkActive="router-link-active"
-    >
+    <li (click)="open('STATISTIKA')" [routerLink]="['/train/statistic']" routerLinkActive="router-link-active">
       STATISTIKA
     </li>
-    <li
-      (click)="open('INDEX TEZINE')"
-      [routerLink]="['/train/bmi']"
-      routerLinkActive="router-link-active"
-    >
-      INDEX TEZINE
+    <li (click)="open('BMI INDEX')" [routerLink]="['/train/bmi']" routerLinkActive="router-link-active">
+      bmi index
     </li>
     <li (click)="logout()">
       LOGOUT

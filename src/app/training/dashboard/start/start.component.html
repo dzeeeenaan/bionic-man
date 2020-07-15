@@ -1,9 +1,11 @@
 <div class="container" #cont>
   <h2>{{ exercise_name }}</h2>
-  <h2 class="roundName">{{ roundName }}</h2>
-  <mat-progress-spinner
-    diameter="180"
-    strokeWidth="7"
-    [value]="100"
-  ></mat-progress-spinner>
+  <h2 class="roundName" style="position: relative;">{{ roundName }}</h2>
+
+  <div class="divv">
+    <mat-progress-spinner diameter="160" strokeWidth="5" [value]="progress_value"></mat-progress-spinner>
+    <div style="position:relative; top: -120px; left: 45px;font-size: 4rem;">
+      {{ count }}
+    </div>
+  </div>
 </div>

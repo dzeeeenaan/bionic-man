@@ -4,26 +4,30 @@ $white: #fff;
 $gray: #9b9b9b;
 
 .container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 40% 1fr;
 }
 .input-container {
-    width: 40%;
-}
-.bmi-info {
-    font-weight: 300;
-    font-size: 1.8em;
-    margin: 0.5rem 1rem;
+    width: 100%;
 }
 
 form {
+    width: 100%;
+    grid-column: 2/3;
     display: flex;
     flex-direction: column;
     margin: auto;
     align-items: center;
     text-align: center;
-    height: 55vh;
-    justify-content: space-between;
+    height: 45vh;
+    justify-content: space-around;
+}
+.bmi-info {
+    justify-self: center;
+    grid-column: 1/5;
+    padding-top: .5em;
+    font-weight: 400;
+    font-size: 1.6em;
 }
 .flex {
     display: flex;
@@ -40,28 +44,29 @@ form {
     font-size: 1.1em;
 }
 .result-container {
-    padding-top: 1.5em;
+    grid-column: 1/5;
+    padding-top: .5em;
     text-align: center;
     height: 40vh;
 }
 .index-num {
-    font-size: 2.7rem;
+    font-size: 2.5rem;
     padding-bottom: 0.5rem;
-}
-.index-text {
-    font-size: 1.4rem;
-    font-weight: 200;
-    margin: 0 2rem;
 }
 
 .form__group {
     position: relative;
     padding: 15px 0 0;
+    display: flex;
     margin-top: 10px;
+    p {
+        align-self: center;
+    }
 }
 
 .form__field {
     width: 100%;
+    text-align: center;
     border: 0;
     border-bottom: 2px solid $gray;
     outline: 0;
@@ -112,5 +117,23 @@ form {
     &:required,
     &:invalid {
         box-shadow: none;
+    }
+}
+
+.bmi-legend {
+    margin: 0 auto;
+}
+table {
+    font-size: 1.1em;
+    width: 70%;
+    border: 1px solid white;
+    border-collapse: collapse;
+    td {
+        padding: .2em;
+        border-bottom: 1px solid white;
+        border-left: 1px solid white;
+    }
+    tr {
+        padding: .2em;
     }
 }
