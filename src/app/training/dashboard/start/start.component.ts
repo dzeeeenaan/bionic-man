@@ -1,96 +1,82 @@
-import { Exercise } from './../../../exercise.model'
-import { UserService } from 'src/app/user.service'
-import { Component, OnInit, Renderer2, ViewChild, ElementRef, OnDestroy } from '@angular/core'
-import { Router, ActivatedRoute } from '@angular/router'
+import { Exercise } from './../../../exercise.model';
+import { UserService } from 'src/app/data.storage.service';
+import { Component, OnInit, Renderer2, ViewChild, ElementRef, OnDestroy } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { interval } from 'rxjs';
 
 @Component({
     selector: 'app-start',
     templateUrl: './start.component.html',
     styleUrls: [ './start.component.scss' ]
 })
-export class StartComponent implements OnInit, OnDestroy {
-    @ViewChild('cont', { static: true })
-    cont: ElementRef
-
-    progress_value: number = 0
-    exercise_name = 'Killer Core'
-    isPaused: boolean = false
-    roundName: string = 'Pripremi se'
-    roundLength: number
-    restTime: number
-    count: number | string
-    index: number = 0
-    type: string = 'train'
-    plan: Exercise
-    save: number
-    main_interval: any
+export class StartComponent implements OnInit {
+    exerciseName = 'Killer Core';
+    roundName = 'Pripremi se';
+    roundLength: number;
+    restTime: number;
+    countValue = 0;
+    index = 14;
+    type = 'train';
+    plan: Exercise;
+    rest = false;
+    interval;
+    percent: number;
 
     constructor(private userS: UserService, private router: Router) {}
 
     ngOnInit(): void {
-        this.plan = this.userS.getProgram('lvl1')
-        setTimeout(() => {
-            this.startExercise()
-        }, 5000)
-    }
-    ngOnDestroy() {
-        clearInterval(this.main_interval)
+        this.plan = this.userS.getProgram('lvl1');
+        this.updateValues();
     }
 
-    startExercise() {
-        this.prepareValues(this.type)
-        this.startTimer()
-    }
-
-    prepareValues(type: string) {
-        let curEl = this.plan.program[this.index]
-        if (type === 'rest') {
-            this.roundName = 'Odmori'
-            this.roundLength = this.plan.restTime
-            this.type = 'train'
+    updateValues() {
+        this.index = this.plan.program.length;
+        if (this.index === this.plan.program.length) {
+            this.endProgram();
         } else {
-            this.roundName = curEl.name
-            this.roundLength = curEl.length
-            this.type = 'rest'
-            this.index += 1
-        }
-    }
-
-    startTimer() {
-        this.count = this.roundLength
-        this.main_interval = setInterval(() => {
-            if (!this.isPaused) {
-                this.count = parseInt(this.count.toString()) - 1
-                this.progress_value = 100 - this.count / this.roundLength * 100
-                if (this.count <= 0) {
-                    if (this.index === this.plan.program.length) {
-                        this.finishedProgram()
-                        clearInterval(this.main_interval)
-                    } else {
-                        clearInterval(this.main_interval)
-                        this.prepareValues(this.type)
-                        this.startTimer()
-                    }
-                }
+            const currentExercise = this.plan.program[this.index];
+            if (this.rest) {
+                this.roundName = 'Odmori';
+                this.roundLength = this.plan.restTime;
+            } else {
+                this.roundName = currentExercise.name;
+                this.roundLength = currentExercise.length;
+                this.index += 1;
             }
-        }, 1000)
-    }
-
-    finishedProgram() {
-        this.roundName = 'Zavrsen Trening'
-        setTimeout(() => {
-            this.router.navigate([ '/train' ])
-        }, 3000)
-    }
-
-    pause() {
-        this.isPaused = !this.isPaused
-        console.log(this.count)
-        if (this.isPaused) {
-            this.save = parseInt(this.count.toString())
-            this.count = 'Nastavi'
-        } else {
-            this.count = this.save
+            this.startClock();
+            this.rest = !this.rest;
         }
     }
+
+    endProgram() {
+        this.roundName = 'Zavrsen Trening <br/> Cestitamo';
+        clearInterval(this.interval);
+        this.percent = null;
+        setTimeout(() => {
+            this.router.navigate([ '/train' ]);
+        }, 10000);
+    }
+
+    startClock() {
+        this.countValue = this.roundLength;
+        this.interval = setInterval(() => {
+            this.countValue -= 1;
+            this.percent = 100 - Math.round(this.countValue / this.roundLength * 100);
+            console.log(this.percent);
+            if (this.countValue <= 0) {
+                clearInterval(this.interval);
+                this.updateValues();
+            }
+        }, 1000);
+    }
+
+    // pause() {
+    //     this.isPaused = !this.isPaused;
+    //     console.log(this.count);
+    //     if (this.isPaused) {
+    //         this.save = parseInt(this.count.toString());
+    //     } else {
+    //         this.count = this.save;
+    //     }
+    // }
 }

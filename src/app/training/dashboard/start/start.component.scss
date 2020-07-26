@@ -1,13 +1,13 @@
 .container {
-    height: 85vh;
+    height: 100%;
     width: 100%;
-    background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    text-align: center;
     h2 {
-        font-size: 2.2rem;
+        font-size: 2em;
     }
 }
 
@@ -41,4 +41,16 @@
 }
 .current_time {
     top: 50px;
+}
+.prog-cent {
+    width: 140px;
+    height: 140px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .value {
+        position: absolute;
+        font-size: 3.4rem;
+    }
 }

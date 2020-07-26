@@ -9,8 +9,7 @@
 
     <div class="label-cont">
       <div class="form__group field">
-        <input type="input" class="form__field" placeholder="Name" name="name" id='name' formControlName="email"
-          autocomplete="off" />
+        <input type="input" class="form__field" placeholder="Name" name="name" id='name' formControlName="email" />
         <label for="name" class="form__label">Email</label>
       </div>
 
@@ -25,11 +24,11 @@
       <p class="warning" *ngIf="loginError">
         Netacan login , probaj ponovo
       </p>
-      <button class="btn" type="submit" *ngIf="!isLoading" [disabled]='!signUpForm.valid'>
-        Log IN
-      </button>
-
-      <app-loading-spinner *ngIf="isLoading" style="text-align: center; margin: auto;"></app-loading-spinner>
     </div>
+    <button class="btn" type="submit" *ngIf="!isLoading" [disabled]='!signUpForm.valid'>
+      Log IN
+    </button>
+    <app-loading-spinner *ngIf="isLoading" style="text-align: center;"></app-loading-spinner>
+
   </form>
 </div>

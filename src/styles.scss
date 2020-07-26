@@ -7,8 +7,11 @@
 body {
     background: #141e30; /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #243b55, #111929); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #243b55, #111929); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    background: linear-gradient(
+        to right,
+        #243b55,
+        #111929
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     font-family: sans-serif;
     color: #eeeeec;
 }
@@ -28,7 +31,9 @@ body {
 
 html,
 body {
+    overflow-y: hidden;
     height: 100%;
+    font-size: .9em;
 }
 body {
     margin: 0;
@@ -52,36 +57,28 @@ input:-webkit-autofill:active {
 .block {
     background: #141e30; /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #243b55, #111929); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #243b55, #111929); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(
+        to right,
+        #243b55,
+        #111929
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     z-index: 50;
     width: 100vw;
-    height: 100vh;
-    position: absolute;
+    height: 100%;
+    position: fixed;
     top: 0;
     left: 0;
     display: none;
 }
 
-@media screen and (min-width: 430px) {
+@media screen and (min-width: 450px) {
     .block {
         text-align: center;
         display: flex;
         justify-content: center;
         align-items: center;
         &:after {
-            content: "Dekstop verzija jos u izradi ,vrati se na jebeni Portret ";
-        }
-    }
-}
-
-@media screen and (min-width: 450px) and (max-width: 750px) and (orientation: landscape) {
-    .block {
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        &:after {
-            content: "Aplikacija nije predvidena za Landscape ,vrati se na jebeni Portret ";
+            content: "Aplikacija trenutno samo podrzava jebeni mobile Portrait mode.";
         }
     }
 }

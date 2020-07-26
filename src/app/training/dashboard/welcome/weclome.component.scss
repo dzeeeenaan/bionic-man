@@ -1,38 +1,38 @@
 .container {
-  animation: fade-in linear 1.5s;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  width: 90%;
-  height: 50vh;
-  justify-content: space-around;
-  margin: auto;
-  margin-top: 3rem;
+    animation: fade-in linear 1.5s;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 80%;
+    height: 50vh;
+    justify-content: space-around;
+    margin: auto;
+    margin-top: 3rem;
 }
 .main-name {
-  font-size: 2rem;
-  text-align: center;
-  font-weight: 400;
-  margin: auto;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 400;
+    margin: auto;
 }
 
 .quote-intro {
-  margin-top: 2rem;
+    margin-top: 2rem;
 }
 .quote {
-  font-size: 1rem;
-  font-style: italic;
+    font-size: 1rem;
+    font-style: italic;
 }
 .main-text {
-  margin-top: 2rem;
-  font-size: 1.3rem;
+    margin-top: 2rem;
+    font-size: 1.3rem;
 }
 
 @keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

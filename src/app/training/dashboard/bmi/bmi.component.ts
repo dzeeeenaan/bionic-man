@@ -21,6 +21,13 @@ export class BmiComponent implements OnInit {
             weight: new FormControl(null, Validators.required),
             age: new FormControl(null, Validators.required)
         })
+
+        window.addEventListener('resize', () => {
+            this.resetHeight()
+        })
+    }
+    resetHeight() {
+        document.body.style.height = window.innerHeight + 'px'
     }
 
     getBMI() {

@@ -1,3 +1,4 @@
+//variables
 $primary: whitesmoke;
 $secondary: rgb(231, 227, 227);
 $white: #fff;
@@ -6,9 +7,8 @@ $gray: #9b9b9b;
 .container {
     display: grid;
     grid-template-columns: 1fr 40% 1fr;
-}
-.input-container {
-    width: 100%;
+    height: 100%;
+    grid-template-rows: 60px 50% auto;
 }
 
 form {
@@ -16,16 +16,15 @@ form {
     grid-column: 2/3;
     display: flex;
     flex-direction: column;
-    margin: auto;
     align-items: center;
     text-align: center;
-    height: 45vh;
+    height: 100%;
     justify-content: space-around;
 }
 .bmi-info {
     justify-self: center;
-    grid-column: 1/5;
-    padding-top: .5em;
+    grid-column: 1/-1;
+    padding: .7em;
     font-weight: 400;
     font-size: 1.6em;
 }
@@ -41,7 +40,8 @@ form {
 .btn {
     align-self: center;
     font-weight: 600;
-    font-size: 1.1em;
+    font-size: 1.2em;
+    padding: .6em 1.2em;
 }
 .result-container {
     grid-column: 1/5;
@@ -124,7 +124,7 @@ form {
     margin: 0 auto;
 }
 table {
-    font-size: 1.1em;
+    font-size: 1.2em;
     width: 70%;
     border: 1px solid white;
     border-collapse: collapse;
