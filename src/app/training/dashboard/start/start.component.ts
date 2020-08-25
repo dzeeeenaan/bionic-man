@@ -15,11 +15,13 @@ export class StartComponent implements OnInit {
     roundLength: number;
     restTime: number;
     countValue = 0;
-    index = 14;
+    index = 0;
     type = 'train';
     plan: Exercise;
     rest = false;
     interval;
+    save: number;
+    isPaused = false;
     percent: number;
 
     constructor(private userS: UserService, private router: Router) {}
@@ -30,7 +32,6 @@ export class StartComponent implements OnInit {
     }
 
     updateValues() {
-        this.index = this.plan.program.length;
         if (this.index === this.plan.program.length) {
             this.endProgram();
         } else {
@@ -60,23 +61,24 @@ export class StartComponent implements OnInit {
     startClock() {
         this.countValue = this.roundLength;
         this.interval = setInterval(() => {
-            this.countValue -= 1;
-            this.percent = 100 - Math.round(this.countValue / this.roundLength * 100);
-            console.log(this.percent);
-            if (this.countValue <= 0) {
-                clearInterval(this.interval);
-                this.updateValues();
+            if (!this.isPaused) {
+                this.countValue -= 1;
+                this.percent = 100 - Math.round(this.countValue / this.roundLength * 100);
+                console.log(this.percent);
+                if (this.countValue <= 0) {
+                    clearInterval(this.interval);
+                    this.updateValues();
+                }
             }
         }, 1000);
     }
 
-    // pause() {
-    //     this.isPaused = !this.isPaused;
-    //     console.log(this.count);
-    //     if (this.isPaused) {
-    //         this.save = parseInt(this.count.toString());
-    //     } else {
-    //         this.count = this.save;
-    //     }
-    // }
+    pause() {
+        this.isPaused = !this.isPaused;
+        if (this.isPaused) {
+            this.save = this.countValue;
+        } else {
+            this.countValue = this.save;
+        }
+    }
 }

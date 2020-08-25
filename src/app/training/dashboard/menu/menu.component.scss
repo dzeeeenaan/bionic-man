@@ -1,71 +1,75 @@
 header {
-    font-weight: 200;
-    height: 65px;
-    font-size: 1.4rem;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 1rem;
-    align-items: center;
-    background: linear-gradient(120deg, #f0f5fa 0%, #e1e4ec 100%);
-    border-bottom: whitesmoke;
+  font-weight: 200;
+  height: 60px;
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  align-items: center;
+  background: linear-gradient(120deg, #f0f5fa 0%, #e1e4ec 100%);
+  border-bottom: whitesmoke;
 }
 .dropdown {
-    border-top: 1px solid grey;
-    position: absolute;
-    background: linear-gradient(120deg, #f0f5fa 0%, #e1e4ec 100%);
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    right: 0;
-    top: 65px;
-
-    display: none;
-    text-align: center;
-    color: black;
-    border-bottom: 1px solid black;
-    z-index: 10;
-    li {
-        padding: 0.5rem 0;
-        text-transform: uppercase;
-    }
+  border-top: 1px solid grey;
+  position: absolute;
+  background: linear-gradient(120deg, #f0f5fa 0%, #e1e4ec 100%);
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  right: 0;
+  top: 60px;
+  display: none;
+  text-align: center;
+  color: black;
+  border-bottom: 1px solid black;
+  z-index: 10;
+  li {
+    font-size: 1.6rem;
+    padding: 0.7rem 0;
+    text-transform: uppercase;
+  }
 }
 .backdrop {
-    position: fixed;
-    top: 70px;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    display: none;
-    background: rgba(0, 0, 0, 0.712);
-    z-index: 5;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  background: rgba(0, 0, 0, 0.712);
+  z-index: 5;
+}
+
+img {
+  height: 100%;
 }
 
 .display {
-    display: block;
+  display: block;
 }
 .drop {
-    display: block;
-    animation: 0.6s linear jebemtikruh forwards;
+  display: block;
+  animation: 0.4s linear jebemtikruh forwards;
 }
 .menu {
-    margin-right: 0.5rem;
-    display: flex;
-    align-items: center;
+  margin-right: 0.5rem;
+  display: flex;
+  align-items: center;
 }
 .preview {
-    font-size: 1.6rem;
-    font-weight: 400;
-    color: black;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: black;
 }
 .router-link-active {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 @keyframes jebemtikruh {
-    from {
-        max-height: 0px;
-    }
-    to {
-        max-height: 500px;
-    }
+  from {
+    max-height: 0px;
+  }
+  to {
+    max-height: 500px;
+  }
 }

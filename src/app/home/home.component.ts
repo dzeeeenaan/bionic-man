@@ -40,7 +40,6 @@ export class HomeComponent implements OnInit {
             (data) => {
                 this.isLoading = false;
                 this.router.navigate([ '/train' ]);
-                console.log(data);
             },
             (errorCode) => {
                 this.isLoading = false;

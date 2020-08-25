@@ -23,40 +23,43 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoginAuthGuard } from './home/login-guard';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
+import { SliderCarouselModule } from 'slider-carousel';
+
 @NgModule({
-    // tslint:disable-next-line: max-line-length
-    declarations: [
-        AppComponent,
-        LoadingSpinnerComponent,
-        HomeComponent,
-        TrainingComponent,
-        DashboardComponent,
-        PrepareComponent,
-        StatisticComponent,
-        MenuComponent,
-        StartComponent,
-        PageNotFoundComponent,
-        WeclomeComponent,
-        BmiComponent
-    ],
-    // tslint:disable-next-line: max-line-length
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        ReactiveFormsModule,
-        MatProgressSpinnerModule,
-        DragDropModule,
-        MatButtonModule,
-        HttpClientModule
-    ],
-    // tslint:disable-next-line: max-line-length
-    providers: [
-        UserService,
-        AuthService,
-        AuthGuardService,
-        LoginAuthGuard,
-        { provide: LocationStrategy, useClass: HashLocationStrategy }
-    ],
-    bootstrap: [ AppComponent ]
+  // tslint:disable-next-line: max-line-length
+  declarations: [
+    AppComponent,
+    LoadingSpinnerComponent,
+    HomeComponent,
+    TrainingComponent,
+    DashboardComponent,
+    PrepareComponent,
+    StatisticComponent,
+    MenuComponent,
+    StartComponent,
+    PageNotFoundComponent,
+    WeclomeComponent,
+    BmiComponent,
+  ],
+  // tslint:disable-next-line: max-line-length
+  imports: [
+    SliderCarouselModule,
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    MatProgressSpinnerModule,
+    DragDropModule,
+    MatButtonModule,
+    HttpClientModule,
+  ],
+  // tslint:disable-next-line: max-line-length
+  providers: [
+    UserService,
+    AuthService,
+    AuthGuardService,
+    LoginAuthGuard,
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

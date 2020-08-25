@@ -6,7 +6,7 @@ $gray: #9b9b9b;
 
 .container {
     display: grid;
-    grid-template-columns: 1fr 40% 1fr;
+    grid-template-columns: 1fr 45% 1fr;
     height: 100%;
     grid-template-rows: 60px 50% auto;
 }
@@ -24,7 +24,7 @@ form {
 .bmi-info {
     justify-self: center;
     grid-column: 1/-1;
-    padding: .7em;
+    padding: 1em;
     font-weight: 400;
     font-size: 1.6em;
 }
@@ -41,7 +41,7 @@ form {
     align-self: center;
     font-weight: 600;
     font-size: 1.2em;
-    padding: .6em 1.2em;
+    padding: .6em 1em;
 }
 .result-container {
     grid-column: 1/5;

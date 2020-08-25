@@ -1,34 +1,51 @@
-<div class="container">
-  <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-    <div class="center">
-      <div class="title">
-        <p>BIONIC MAN</p>
-      </div>
-      <img src="../../assets/bionic_logo.png" alt="" />
+<form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+  <div class="center">
+    <div class="title">
+      <p>BIONIC MAN</p>
+    </div>
+    <img src="../../assets/bionic_logo.png" alt="" />
+  </div>
+
+  <div class="label-cont">
+    <div class="form__group field">
+      <input
+        type="input"
+        class="form__field"
+        placeholder="Name"
+        name="name"
+        id="name"
+        formControlName="email"
+      />
+      <label for="name" class="form__label">Email</label>
     </div>
 
-    <div class="label-cont">
-      <div class="form__group field">
-        <input type="input" class="form__field" placeholder="Name" name="name" id='name' formControlName="email" />
-        <label for="name" class="form__label">Email</label>
-      </div>
-
-      <div class="form__group field">
-        <input type="password" class="form__field" placeholder="Name" name="name" id='name'
-          formControlName="password" />
-        <label for="name" class="form__label">Password</label>
-      </div>
-
+    <div class="form__group field">
+      <input
+        type="password"
+        class="form__field"
+        placeholder="Name"
+        name="name"
+        id="name"
+        formControlName="password"
+      />
+      <label for="name" class="form__label">Password</label>
     </div>
-    <div class="center">
-      <p class="warning" *ngIf="loginError">
-        Netacan login , probaj ponovo
-      </p>
-    </div>
-    <button class="btn" type="submit" *ngIf="!isLoading" [disabled]='!signUpForm.valid'>
-      Log IN
-    </button>
-    <app-loading-spinner *ngIf="isLoading" style="text-align: center;"></app-loading-spinner>
-
-  </form>
-</div>
+  </div>
+  <div class="center">
+    <p class="warning" *ngIf="loginError">
+      Netacan login , probaj ponovo
+    </p>
+  </div>
+  <button
+    class="btn"
+    type="submit"
+    *ngIf="!isLoading"
+    [disabled]="!signUpForm.valid"
+  >
+    Log IN
+  </button>
+  <app-loading-spinner
+    *ngIf="isLoading"
+    style="text-align: center;"
+  ></app-loading-spinner>
+</form>
