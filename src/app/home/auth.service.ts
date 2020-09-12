@@ -1,9 +1,15 @@
 import { User } from './../user.model';
+import { LoggedUser } from '../LoggedUser.model';
 import { Router } from '@angular/router';
-import { map, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, from } from 'rxjs';
+
+interface serverScore {
+  Dzeno: { score: number };
+  Jasmin: { score: number };
+}
 
 interface AuthResponse {
   idToken: string;
@@ -15,6 +21,7 @@ interface AuthResponse {
 
 @Injectable()
 export class AuthService {
+  loggedUser = new BehaviorSubject<LoggedUser>(null);
   user = new BehaviorSubject<User>(null);
 
   constructor(private httpClient: HttpClient, private router: Router) {}
@@ -40,6 +47,7 @@ export class AuthService {
           );
           this.user.next(newUser);
           localStorage.setItem('userLogin', JSON.stringify(newUser));
+          this.loadData();
         })
       );
   }
@@ -63,5 +71,30 @@ export class AuthService {
       );
       this.user.next(newUser);
     }
+    this.loadData();
+  }
+  loadData() {
+    this.httpClient
+      .get<serverScore>(`https://recipe-train.firebaseio.com/scores.json`)
+      .subscribe((data) => {
+        const name = this.user.value.email;
+        if (name == 'kananovic.d@gmail.com') {
+          const usero = new LoggedUser(
+            'Dzeno',
+            data.Dzeno.score,
+            'Jasmin',
+            data.Jasmin.score
+          );
+          this.loggedUser.next(usero);
+        } else {
+          const usero = new LoggedUser(
+            'Jasmin',
+            data.Jasmin.score,
+            'Dzeno',
+            data.Dzeno.score
+          );
+          this.loggedUser.next(usero);
+        }
+      });
   }
 }

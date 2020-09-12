@@ -1,6 +1,7 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { AuthService } from 'src/app/home/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +11,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class DashboardComponent implements OnInit {
   open: boolean;
 
-  constructor(private render: Renderer2, private route: Router) {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {}
 }

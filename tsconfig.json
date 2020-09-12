@@ -9,9 +9,7 @@
     "experimentalDecorators": true,
     "module": "esnext",
     "moduleResolution": "node",
-    "importHelpers": true,
-    "target": "es2015",
-    "lib": ["es2018", "dom"]
+    "importHelpers": true
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

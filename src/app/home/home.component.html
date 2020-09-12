@@ -32,9 +32,7 @@
     </div>
   </div>
   <div class="center">
-    <p class="warning" *ngIf="loginError">
-      Netacan login , probaj ponovo
-    </p>
+    <p class="warning" *ngIf="loginError">Netacan login , probaj ponovo</p>
   </div>
   <button
     class="btn"
@@ -46,6 +44,6 @@
   </button>
   <app-loading-spinner
     *ngIf="isLoading"
-    style="text-align: center;"
+    style="text-align: center"
   ></app-loading-spinner>
 </form>

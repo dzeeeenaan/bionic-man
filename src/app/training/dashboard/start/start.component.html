@@ -1,9 +1,15 @@
 <div class="container">
-  <h2>{{ exerciseName }}</h2>
-  <h2 class="roundName">{{ roundName }}</h2>
+  <h2 class="roundName" #rnd>{{ roundName | uppercase }}</h2>
+  <!-- <p class="next">{{ nextExercise }}</p> -->
   <div class="prog-cent" (click)="pause()">
-    <p class="value" *ngIf="percent ">{{countValue}}</p>
-    <mat-progress-spinner mode="determinate" value={{percent}} strokeWidth='4' diameter='140'>
+    <p class="value" *ngIf="percent">{{ countValue }}</p>
+    <mat-progress-spinner
+      mode="determinate"
+      value="{{ percent }}"
+      strokeWidth="10 "
+      diameter="220"
+    >
     </mat-progress-spinner>
   </div>
+  <p class="next" *ngIf="!rest">Next: {{ nextExercise }}</p>
 </div>

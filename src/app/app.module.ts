@@ -5,7 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { TrainingComponent } from './training/training.component';
-import { UserService } from './data.storage.service';
+import { DataStorageService } from './data.storage.service';
 import { DashboardComponent } from './training/dashboard/dashboard.component';
 import { PrepareComponent } from './training/dashboard/prepare/prepare.component';
 import { StatisticComponent } from './training/dashboard/statistic/statistic.component';
@@ -54,7 +54,7 @@ import { SliderCarouselModule } from 'slider-carousel';
   ],
   // tslint:disable-next-line: max-line-length
   providers: [
-    UserService,
+    DataStorageService,
     AuthService,
     AuthGuardService,
     LoginAuthGuard,

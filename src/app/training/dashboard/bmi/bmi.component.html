@@ -1,31 +1,45 @@
 <div class="container">
-  <p class="bmi-info">
-    Saznaj svoj Index tezine
-  </p>
+  <p class="bmi-info">Saznaj svoj Index tezine</p>
   <form [formGroup]="submitForm" (ngSubmit)="getBMI()">
-
-
-    <div class="input-container" style="text-align: center;">
-
+    <div class="input-container" style="text-align: center">
       <div class="form__group field">
-        <input type="input" class="form__field" placeholder="Name" name="name" id='name' formControlName="height"
-          autocomplete="off" />
+        <input
+          type="input"
+          class="form__field"
+          placeholder="Name"
+          name="name"
+          id="name"
+          formControlName="height"
+          autocomplete="off"
+        />
 
         <label for="name" class="form__label">Visina</label>
         <p>cm</p>
       </div>
 
-
-
-      <div class="form__group ">
-        <input type="input" class="form__field" placeholder="Name" name="name" id='name' formControlName="weight"
-          autocomplete="off" />
+      <div class="form__group">
+        <input
+          type="input"
+          class="form__field"
+          placeholder="Name"
+          name="name"
+          id="name"
+          formControlName="weight"
+          autocomplete="off"
+        />
         <label for="name" class="form__label">Tezina</label>
         <p>kg</p>
       </div>
       <div class="form__group field">
-        <input type="input" class="form__field" placeholder="Name" name="name" id='name' formControlName="age"
-          autocomplete="off" />
+        <input
+          type="input"
+          class="form__field"
+          placeholder="Name"
+          name="name"
+          id="name"
+          formControlName="age"
+          autocomplete="off"
+        />
         <label for="name" class="form__label">Starost</label>
         <p>god</p>
       </div>
@@ -40,13 +54,12 @@
         <td>Klasifikacija</td>
       </tr>
       <tr>
-        <td>
-          <20 </td>
-        <td>Fati se kasike </td>
+        <td><20</td>
+        <td>Fati se kasike</td>
       </tr>
       <tr>
         <td>20-25</td>
-        <td>Moze proci </td>
+        <td>Moze proci</td>
       </tr>
       <tr>
         <td>25-30</td>

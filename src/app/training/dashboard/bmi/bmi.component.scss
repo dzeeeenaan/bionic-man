@@ -5,135 +5,135 @@ $white: #fff;
 $gray: #9b9b9b;
 
 .container {
-    display: grid;
-    grid-template-columns: 1fr 45% 1fr;
-    height: 100%;
-    grid-template-rows: 60px 50% auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
 }
 
 form {
-    width: 100%;
-    grid-column: 2/3;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    height: 100%;
-    justify-content: space-around;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 45vh;
+  justify-content: space-around;
 }
 .bmi-info {
-    justify-self: center;
-    grid-column: 1/-1;
-    padding: 1em;
-    font-weight: 400;
-    font-size: 1.6em;
+  justify-self: center;
+  padding: 1em;
+  font-weight: 400;
+  font-size: 1.6em;
 }
 .flex {
-    display: flex;
-    margin: 0.6rem 0;
-    p {
-        font-size: 1.3rem;
-        font-weight: 400;
-        align-self: flex-end;
-    }
+  display: flex;
+  margin: 0.6rem 0;
+  p {
+    font-size: 1.3rem;
+    font-weight: 400;
+    align-self: flex-end;
+  }
 }
 .btn {
-    align-self: center;
-    font-weight: 600;
-    font-size: 1.2em;
-    padding: .6em 1em;
+  align-self: center;
+  font-weight: 600;
+  font-size: 1.2em;
+  margin: 1rem 0;
+  padding: 0.6em 1em;
 }
 .result-container {
-    grid-column: 1/5;
-    padding-top: .5em;
-    text-align: center;
-    height: 40vh;
+  grid-column: 1/5;
+  padding-top: 0.5em;
+  text-align: center;
+  height: 100%;
+  width: 100%;
 }
 .index-num {
-    font-size: 2.5rem;
-    padding-bottom: 0.5rem;
+  font-size: 2.5rem;
+  margin: 1.5rem 0;
 }
 
 .form__group {
-    position: relative;
-    padding: 15px 0 0;
-    display: flex;
-    margin-top: 10px;
-    p {
-        align-self: center;
-    }
+  position: relative;
+  padding: 15px 0 0;
+  display: flex;
+  margin-top: 10px;
+  p {
+    align-self: center;
+  }
 }
 
 .form__field {
-    width: 100%;
-    text-align: center;
-    border: 0;
-    border-bottom: 2px solid $gray;
-    outline: 0;
+  width: 100%;
+  text-align: center;
+  border: 0;
+  border-bottom: 2px solid $gray;
+  outline: 0;
+  font-size: 1.3rem;
+  color: $white;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~ .form__label {
     font-size: 1.3rem;
-    color: $white;
-    padding: 7px 0;
-    background: transparent;
-    transition: border-color 0.2s;
-
-    &::placeholder {
-        color: transparent;
-    }
-
-    &:placeholder-shown ~ .form__label {
-        font-size: 1.3rem;
-        cursor: text;
-        top: 20px;
-    }
+    cursor: text;
+    top: 20px;
+  }
 }
 
 .form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: $gray;
+}
+
+.form__field:focus {
+  ~ .form__label {
     position: absolute;
     top: 0;
     display: block;
     transition: 0.2s;
     font-size: 1rem;
-    color: $gray;
-}
-
-.form__field:focus {
-    ~ .form__label {
-        position: absolute;
-        top: 0;
-        display: block;
-        transition: 0.2s;
-        font-size: 1rem;
-        color: $primary;
-        font-weight: 700;
-    }
-    padding-bottom: 6px;
+    color: $primary;
     font-weight: 700;
-    border-width: 3px;
-    border-image: linear-gradient(to right, $primary, $secondary);
-    border-image-slice: 1;
+  }
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, $primary, $secondary);
+  border-image-slice: 1;
 }
 /* reset input */
 .form__field {
-    &:required,
-    &:invalid {
-        box-shadow: none;
-    }
+  &:required,
+  &:invalid {
+    box-shadow: none;
+  }
 }
 
 .bmi-legend {
-    margin: 0 auto;
+  margin: 0 auto;
 }
 table {
-    font-size: 1.2em;
-    width: 70%;
-    border: 1px solid white;
-    border-collapse: collapse;
-    td {
-        padding: .2em;
-        border-bottom: 1px solid white;
-        border-left: 1px solid white;
-    }
-    tr {
-        padding: .2em;
-    }
+  font-size: 1.2em;
+  width: 70%;
+  border: 1px solid white;
+  border-collapse: collapse;
+  td {
+    padding: 0.2em;
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
+  }
+  tr {
+    padding: 0.2em;
+  }
 }

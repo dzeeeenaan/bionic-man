@@ -1,7 +1,6 @@
-import { UserService } from 'src/app/data.storage.service';
-import { Component, OnInit, Renderer2, Input } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { AuthService } from 'src/app/home/auth.service';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-menu',

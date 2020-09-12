@@ -11,29 +11,27 @@
       Home
     </li>
     <li
-      (click)="open('TRENING')"
+      (click)="open('TRAIN')"
       [routerLink]="['/train/prepare']"
       routerLinkActive="router-link-active"
     >
-      Trening
+      Train
     </li>
     <li
-      (click)="open('STATISTIKA')"
+      (click)="open('STATISTICS')"
       [routerLink]="['/train/statistic']"
       routerLinkActive="router-link-active"
     >
-      STATISTIKA
+      Statistics
     </li>
     <li
       (click)="open('BMI INDEX')"
       [routerLink]="['/train/bmi']"
       routerLinkActive="router-link-active"
     >
-      bmi index
+      Index
     </li>
-    <li (click)="logout()">
-      LOGOUT
-    </li>
+    <li (click)="logout()">LOGOUT</li>
   </ul>
 </header>
 <div class="backdrop" [ngClass]="{ display: opened }"></div>

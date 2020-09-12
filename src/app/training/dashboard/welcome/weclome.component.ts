@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { AuthService } from 'src/app/home/auth.service';
 
 @Component({
   selector: 'app-weclome',
@@ -6,8 +7,14 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./weclome.component.scss'],
 })
 export class WeclomeComponent implements OnInit {
-  user: string = 'User';
-  constructor() {}
+  user: string = 'Jasmin';
+  constructor(private data: AuthService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.data.loggedUser.subscribe((data) => {
+      this.user = data.name;
+    });
+  }
+
+  ngOnDestroy() {}
 }

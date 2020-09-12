@@ -1,56 +1,74 @@
 .container {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    text-align: center;
-    h2 {
-        font-size: 2em;
-    }
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
-
-.preImg {
-    animation: show 5s;
+.title {
+  font-size: 1.8rem;
+  font-weight: 400;
+  padding: 0.5em 0;
+}
+.roundName {
+  font-size: 2.5rem;
+  font-weight: 500;
+  padding: 2em 0;
+  white-space: nowrap;
+}
+.next {
+  font-size: 2rem;
+  padding: 1em;
 }
 
 .circle {
-    width: 140px;
-    height: 140px;
-    line-height: 140px;
-    border: 1.5px solid white;
-    border-radius: 50%;
-    font-size: 4.5rem;
-    font-weight: 700;
-    margin: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    p {
-        line-height: normal;
-        padding: 0.5rem;
-    }
+  width: 220px;
+  height: 220px;
+  border: 1.5px solid white;
+  border-radius: 50%;
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  p {
+    line-height: normal;
+    padding: 0.5rem;
+  }
 }
 .paused {
-    font-size: 1.6rem;
+  font-size: 1.6rem;
 }
 .progress_container {
-    height: 200px;
+  height: 200px;
 }
 .current_time {
-    top: 50px;
+  top: 50px;
 }
 .prog-cent {
-    width: 140px;
-    height: 140px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .value {
-        position: absolute;
-        font-size: 3.4rem;
-    }
+  width: 220px;
+  height: 220px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .value {
+    position: absolute;
+    font-size: 7rem;
+    font-family: fantasy;
+  }
+}
+
+.expand {
+  animation: grow 1.5s infinite;
+}
+
+@keyframes grow {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.35);
+  }
 }

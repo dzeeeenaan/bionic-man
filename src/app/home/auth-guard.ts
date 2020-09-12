@@ -14,7 +14,6 @@ export class AuthGuardService implements CanActivate {
       }),
       tap((isAuth) => {
         if (isAuth) {
-          console.log('treu');
           return true;
         } else {
           return this.router.navigate(['/login']);

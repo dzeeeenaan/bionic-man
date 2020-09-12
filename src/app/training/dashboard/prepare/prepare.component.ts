@@ -1,4 +1,4 @@
-import { UserService } from 'src/app/data.storage.service';
+import { DataStorageService } from 'src/app/data.storage.service';
 import { Component, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -12,31 +12,19 @@ export class PrepareComponent implements OnInit {
   isClicked: boolean = false;
   selected: string;
   images: string[] = [
-    '../../../../assets/img/tiger-roar.jpg',
-    '../../../../assets/img/bionic-img.jpg',
+    '../../../../assets/img/ab-killer.jpg',
+    '../../../../assets/img/limit-breaker.jpg',
+    '../../../../assets/img/ultra-core.jpg',
   ];
   constructor(
     private render: Renderer2,
     private route: Router,
-    private userS: UserService
+    private userS: DataStorageService
   ) {}
 
-  ngOnInit(): void {
-    this.list = [
-      {
-        title: 'ULTRA COREE',
-        description: 'big beng and many other exercises',
-      },
-    ];
-  }
+  ngOnInit(): void {}
 
   startProgram(event) {
-    // if (!this.isClicked || this.selected !== 'Level 1') {
-    //     this.render.addClass(event.target, 'shake');
-    //     setTimeout(() => {
-    //         this.render.removeClass(event.target, 'shake');
-    //     }, 500);
-    // } else {
     this.route.navigate(['/train/start']);
   }
 }
